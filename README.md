@@ -2,12 +2,15 @@
 
 작은 골목 분식집에서 주문을 받고, 재료를 원하는 만큼 담아 직접 끓이는 PC·모바일 브라우저 게임입니다.
 
+[바로 플레이 — PC·모바일](https://hadangs516.github.io/bogeul-tteokbokki/) · [GitHub 소스](https://github.com/hadangs516/bogeul-tteokbokki)
+
 ## 실행
 
-- 이 폴더의 한 단계 위에 있는 `실행하기.cmd`를 실행합니다.
-- 또는 Node.js 24 환경에서 이 `game` 폴더를 열고 `npm start`를 실행한 뒤 [게임 열기](http://localhost:4173)로 접속합니다.
+- PC와 휴대폰 모두 위의 **바로 플레이** 링크로 접속하면 됩니다.
+- GitHub에서 소스를 받은 경우 Node.js 24 환경에서 저장소 폴더를 열고 `npm start`를 실행한 뒤 [로컬 게임 열기](http://localhost:4173)로 접속합니다.
+- `실행하기.cmd`가 포함된 로컬 배포본은 해당 파일을 더블클릭해 실행할 수 있습니다. 이 실행 파일은 GitHub 저장소에 포함되지 않습니다.
 - 패키지 설치, 계정, API 키는 필요하지 않습니다. 로컬 서버를 종료하려면 실행 창을 닫습니다.
-- 휴대폰에서는 배포된 웹 주소로 접속합니다. 로컬 실행 서버는 이 PC에서만 접속할 수 있습니다.
+- 로컬 실행 서버는 이 PC에서만 접속할 수 있습니다. 휴대폰에서는 위의 공개 플레이 링크를 이용합니다.
 
 ## 한 그릇 만들기
 
@@ -26,6 +29,6 @@
 - 규칙·조리·저장 복원 검사: `npm test`
 - GitHub에 올릴 때는 **이 `game` 폴더의 내용**을 저장소 루트에 넣습니다. 숨김 폴더 `.github`도 포함합니다.
 - Pages 배포 소스를 **GitHub Actions**로 설정하고 `main` 브랜치에 올리면, 포함된 워크플로가 테스트 후 정적 게임 파일을 배포합니다. 수동 실행도 가능합니다.
-- 실제 공개 저장소 생성과 배포 주소는 아직 확정되지 않았습니다.
+- 공개 저장소: [hadangs516/bogeul-tteokbokki](https://github.com/hadangs516/bogeul-tteokbokki)
 
 기획과 화면 기준은 [PRODUCT.md](PRODUCT.md), [DESIGN.md](DESIGN.md), 그림·글꼴 출처는 [ASSETS.md](ASSETS.md)에 정리했습니다.
