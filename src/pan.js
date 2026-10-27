@@ -24,6 +24,7 @@ export class PanRenderer{
   this.canvas=null;this.context=null;this.dish={sauce:null,ingredients:[],quantities:{}};
   this.stage='prep';this.cook=null;this.heat=0;this.effects=[];this.lastTime=null;
   this.stirStarted=-Infinity;this.lastStirs=0;this.width=0;this.height=0;
+  this.resizeObserver=typeof ResizeObserver!=='undefined'?new ResizeObserver(()=>this.resize()):null;
   this.motionReduced=typeof window!=='undefined'&&!!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   this.atlas=null;
   if(typeof Image!=='undefined'){
@@ -31,7 +32,7 @@ export class PanRenderer{
    asset.onerror=()=>{};asset.src=new URL('../assets/ingredient-atlas.png',import.meta.url).href;
   }
  }
- mount(canvas){this.canvas=canvas||null;this.context=canvas?.getContext('2d')||null;this.lastTime=null;this.resize();}
+ mount(canvas){this.resizeObserver?.disconnect();this.canvas=canvas||null;this.context=canvas?.getContext('2d')||null;this.lastTime=null;if(canvas)this.resizeObserver?.observe(canvas);this.resize();}
  resize(){
   if(!this.canvas)return;const r=this.canvas.getBoundingClientRect(),dpr=Math.min(globalThis.devicePixelRatio||1,2);
   this.width=Math.max(1,r.width||720);this.height=Math.max(1,r.height||500);

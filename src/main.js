@@ -42,7 +42,7 @@ function render(){
  const modal=panel==='reset'?resetView():panel?renderPanel(panel,state):screen==='intro'?intro():screen==='result'?resultView():screen==='end'?endView():'';
  app.innerHTML=(screen==='title'?title():game())+(modal?'<div class="overlay">'+modal+'</div>':'');
  const tray=app.querySelector('.ingredient-grid');if(tray)tray.scrollLeft=trayScroll;if(modal)app.querySelector('main')?.setAttribute('inert','');
- const canvas=app.querySelector('#pan');if(canvas){pan.mount(canvas);pan.update({...dish,bowl},stage==='season'?'prep':stage,cook);pan.draw(performance.now());}
+ const canvas=app.querySelector('#pan');if(canvas){pan.mount(canvas);pan.update({...dish,bowl},stage==='season'?'prep':stage,cook);pan.draw(performance.now());}else pan.mount(null);
  if(stage==='cooking')updateCooking();
  const scope=modal?app.querySelector('.modal'):app;
  if(modal){scope.setAttribute('role',panel==='reset'?'alertdialog':'dialog');scope.setAttribute('aria-modal','true');}
@@ -103,4 +103,5 @@ function roomTabs(){return '<nav class="room-tabs" aria-label="가게 진행"><d
 
 
 function ingredientSprite(index){const x=index%5*307.2,y=index<5?170:565,id='tray-crop-'+index;return '<svg class="food-sprite" viewBox="'+x+' '+y+' 307.2 310" aria-hidden="true"><defs><clipPath id="'+id+'"><rect x="'+x+'" y="'+y+'" width="307.2" height="310"/></clipPath></defs><image href="./assets/ingredient-atlas.png" width="1536" height="1024" clip-path="url(#'+id+')"/></svg>';}
+
 
